@@ -7,8 +7,8 @@ import sys.process._
 object GitCmd extends Git {
   def clone(url: String, config: Config, targetDir: File): Either[String, File] with Product with Serializable = {
 
-    // $ git clone --single-branch --depth 1 --branch $branchName $url
-    val gitCmdHead = "git clone --single-branch --depth 1"
+    // $ git clone --depth 1 --branch $branchName $url
+    val gitCmdHead = "git clone --depth 1"
     import config._
     val branchCmd =
       if (tag.isDefined) s"--branch refs/tags/${tag.get}"
